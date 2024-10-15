@@ -1,12 +1,13 @@
-
 import express, { Request, Response } from 'express';
 import Amadeus from 'amadeus';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
+
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+
 app.use(cors({
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST'],
@@ -43,6 +44,7 @@ app.post('/api/flightSearch', async (req: Request, res: Response) => {
             adults: passengers.toString(),
             duration: duration
         });
+
         console.log('Amadeus response:', response.result); // Log para verificar os dados
         res.json(response.result); // Certifique-se de que está retornando os dados corretos
     } catch (error) {
