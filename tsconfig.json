@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "es2017",                             // Versão alvo do ECMAScript
+    "module": "commonjs",                           // Módulo a ser usado
+    "lib": ["es6"],                                 // Bibliotecas a serem incluídas
+    "allowJs": true,                                // Permitir arquivos JavaScript
+    "outDir": "./dist",                             // Diretório de saída para os arquivos compilados
+    "rootDir": "./src",                             // Diretório raiz dos arquivos de origem
+    "removeComments": true,                         // Remove comentários dos arquivos de saída
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"
+    ],
+    "esModuleInterop": true,                        // Interoperabilidade com ES Modules
+    "resolveJsonModule": true,                      // Permite importar arquivos JSON
+    "experimentalDecorators": true,                 // Habilita suporte a decorators
+    "emitDecoratorMetadata": true,                  // Emissão de metadados para decorators
+    "skipLibCheck": true,                           // Ignora checagem de tipos em arquivos de declaração
+    "forceConsistentCasingInFileNames": true,      // Força consistência nas letras maiúsculas/minúsculas
+    "baseUrl": ".",                                 // Base para caminhos relativos
+    "paths": {
+      // Configuração de caminhos (descomente se necessário)
+      // "@controllers/*": ["./src/controllers/*"],
+      // "@models/*": ["./src/models/*"],
+      // "@views/*": ["./src/views/*"],
+      // "@config/*": ["./src/config/*"]
+    }
+  },
+  
+  "include": [
+    "src/**/*"                                       // Incluir todos os arquivos TypeScript na pasta src
+  ],
+
+  "exclude": [
+    "node_modules",                                  // Excluir a pasta node_modules
+    "**/*.spec.ts"                                   // Excluir arquivos de teste (opcional)
+  ]
+}
