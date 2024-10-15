@@ -2,7 +2,7 @@
     "name": "template-node-typescript",
     "version": "1.0.0",
     "description": "",
-    "main": "src/main.ts",
+    "main": "dist/main.js",
     "license": "ISC",
     "engines": {
         "node": "20.x"
