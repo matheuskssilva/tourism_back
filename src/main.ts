@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://tourism-travel-interface.vercel.app/',
     methods: ['GET', 'POST'],
     credentials: true,
 }));
