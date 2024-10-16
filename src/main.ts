@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-    origin: 'https://tourism-travel-interface.vercel.app',
+    origin: 'https://tourism-travel-interface.vercel.app', // URL do seu frontend sem a barra no final
     methods: ['GET', 'POST'],
     credentials: true,
 }));
@@ -45,8 +45,8 @@ app.post('/api/flightSearch', async (req: Request, res: Response) => {
             duration: duration
         });
 
-        console.log('Amadeus response:', response.result)
-        res.json(response.result)
+        console.log('Amadeus response:', response.result);
+        res.json(response.result);
     } catch (error) {
         console.error('Error fetching flight offers:', error.response?.data || error);
         res.status(500).json({ error: 'Failed to fetch flight offers', details: error.response?.data || error });
