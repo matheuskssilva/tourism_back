@@ -1,18 +1,24 @@
 import express, { Request, Response, NextFunction } from 'express';
 import Amadeus from 'amadeus';
 import * as dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
-app.use((req: Request, res: Response, next: NextFunction) => {
+// Adicionar headers de CORS manualmente
+app.use((req: Request, res: Response, next: NextFunction): void => {
     res.header('Access-Control-Allow-Origin', 'https://tourism-front-sage.vercel.app');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     res.header('Access-Control-Allow-Credentials', 'true');
-    next();
+    if (req.method === 'OPTIONS') {
+        res.sendStatus(200);
+    } else {
+        next();
+    }
 });
 
 app.get('/', (req: Request, res: Response) => {
