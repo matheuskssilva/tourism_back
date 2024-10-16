@@ -1,18 +1,19 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import Amadeus from 'amadeus';
 import * as dotenv from 'dotenv';
-import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
-app.use(cors({
-    origin: ['https://tourism-front-sage.vercel.app', 'http://localhost:3000'],
-    methods: ['GET', 'POST'],
-    credentials: true,
-}));
+app.use((req: Request, res: Response, next: NextFunction) => {
+    res.header('Access-Control-Allow-Origin', 'https://tourism-front-sage.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    next();
+});
 
 app.get('/', (req: Request, res: Response) => {
     res.send('API is running');
