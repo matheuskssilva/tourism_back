@@ -6,7 +6,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: 'https://tourism-travel-interface.vercel.app/',
+  origin: ['https://tourism-front-sage.vercel.app', 'http://localhost:3000'],
   methods: ['GET', 'POST'],
   credentials: true
 }));
@@ -17,7 +17,7 @@ const amadeus = new Amadeus({
   clientId: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET
 });
-app.post('https://tourism-travel-interface.vercel.app/api/flightSearch', async (req, res) => {
+app.post('/api/flightSearch', async (req, res) => {
   const {
     origin,
     destination,

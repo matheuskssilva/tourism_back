@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-    origin: 'https://tourism-front-sage.vercel.app/', // URL do seu frontend sem a barra no final
+    origin: ['https://tourism-front-sage.vercel.app', 'http://localhost:3000'],
     methods: ['GET', 'POST'],
     credentials: true,
 }));
@@ -24,14 +24,7 @@ const amadeus = new Amadeus({
 });
 
 app.post('/api/flightSearch', async (req: Request, res: Response) => {
-    const { origin, destination, checkint, checkout, passengers, duration } = req.body as {
-        origin: string;
-        destination: string;
-        checkint: string;
-        checkout: string;
-        passengers: number;
-        duration: string
-    };
+    const { origin, destination, checkint, checkout, passengers, duration } = req.body;
 
     console.log('Incoming request data:', req.body);
 
