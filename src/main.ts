@@ -23,7 +23,7 @@ const amadeus = new Amadeus({
     clientSecret: process.env.CLIENT_SECRET,
 });
 
-app.post('/api/flightSearch', async (req: Request, res: Response) => {
+app.post('https://tourism-travel-interface.vercel.app/api/flightSearch', async (req: Request, res: Response) => {
     const { origin, destination, checkint, checkout, passengers, duration } = req.body as {
         origin: string;
         destination: string;
@@ -45,8 +45,8 @@ app.post('/api/flightSearch', async (req: Request, res: Response) => {
             duration: duration
         });
 
-        console.log('Amadeus response:', response.result); // Log para verificar os dados
-        res.json(response.result); // Certifique-se de que está retornando os dados corretos
+        console.log('Amadeus response:', response.result)
+        res.json(response.result)
     } catch (error) {
         console.error('Error fetching flight offers:', error.response?.data || error);
         res.status(500).json({ error: 'Failed to fetch flight offers', details: error.response?.data || error });
