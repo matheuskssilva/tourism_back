@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-    origin: 'https://tourism-travel-interface.vercel.app', // URL do seu frontend sem a barra no final
+    origin: 'https://tourism-front-sage.vercel.app/', // URL do seu frontend sem a barra no final
     methods: ['GET', 'POST'],
     credentials: true,
 }));
