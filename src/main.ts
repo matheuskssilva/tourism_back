@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-    origin: 'https://tourism-travel-interface.vercel.app/',
+    origin: 'https://tourism-travel-interface.vercel.app',
     methods: ['GET', 'POST'],
     credentials: true,
 }));
@@ -23,7 +23,7 @@ const amadeus = new Amadeus({
     clientSecret: process.env.CLIENT_SECRET,
 });
 
-app.post('https://tourism-travel-interface.vercel.app/api/flightSearch', async (req: Request, res: Response) => {
+app.post('/api/flightSearch', async (req: Request, res: Response) => {
     const { origin, destination, checkint, checkout, passengers, duration } = req.body as {
         origin: string;
         destination: string;
