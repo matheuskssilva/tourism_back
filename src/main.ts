@@ -8,7 +8,6 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// Adicionar headers de CORS manualmente
 app.use((req: Request, res: Response, next: NextFunction): void => {
     res.header('Access-Control-Allow-Origin', 'https://tourism-front-sage.vercel.app');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
